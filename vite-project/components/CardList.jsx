@@ -62,13 +62,25 @@ function CardList() {
     <div>
       <h1>Playstation 5 Games</h1>
       <FilterList onFilterChange={handleFilterChange} />
-      <div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {filteredGames.map((game) => (
-          <div key={game.id} onClick={() => handleClick(game.id)}>
-            <img src={game.background_image} alt={`${game.name} image`} />
-            <h3>{game.name}</h3>
-            <p>{game.metacritic}</p>
-            <p>{game.genres.map((genre) => genre.name).join(", ")}</p>
+          <div
+            className="border border-gray-500 rounded-lg hover:shadow-lg transition-shadow max-w-xs mx-auto"
+            key={game.id}
+            onClick={() => handleClick(game.id)}
+          >
+            <img
+              src={game.background_image}
+              alt={`${game.name} image`}
+              className="w-full h-auto object-over rounded-t-lg"
+            />
+            <div className="text-left p-3">
+              <h3 className="text-lg font-semibold mt-2">{game.name}</h3>
+              <p className="text-sm">{game.metacritic}</p>
+              <p className="text-sm">
+                {game.genres.map((genre) => genre.name).join(", ")}
+              </p>
+            </div>
           </div>
         ))}
       </div>
