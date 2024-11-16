@@ -6,7 +6,7 @@ PS5 Game Explorer
 
 What Do I Want To Make?
 
-A video game database, specifically based on Playstation 5 games. My PS5 game explorer is a one-page site where the user receives a card list of Playstation games with information such as genre, release year and popularity, with the ability to filter by those categories. When hovering over the cards, the user will also receive a description of the video game.
+A video game database, specifically based on Playstation 5 games. My PS5 game explorer is a one-page site where the user receives a card list of Playstation games with information such as genre, release year and popularity, with the ability to filter by those categories. When hovering over the cards, the user will also receive a description of the video game when clicking it.
 
 # Github
 
