@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useTheme } from "../context/MyThemeContext";
 
 export function FilterList({ onFilterChange }) {
+  const { theme } = useTheme();
   const [genre, setGenre] = useState("");
   const [releaseYear, setReleaseYear] = useState("");
   const [rating, setRating] = useState("");
@@ -21,9 +23,17 @@ export function FilterList({ onFilterChange }) {
   };
 
   return (
-    <div>
+    <div style={{ backgroundColor: theme.foreground, color: theme.text }}>
       <label>
-        <select value={genre} onChange={handleGenreChange}>
+        <select
+          value={genre}
+          onChange={handleGenreChange}
+          style={{
+            backgroundColor: theme.background,
+            color: theme.text,
+          }}
+          className="cursor-pointer"
+        >
           <option value="">All Genres</option>
           <option value="Action">Action</option>
           <option value="Adventure">Adventure</option>
@@ -34,7 +44,15 @@ export function FilterList({ onFilterChange }) {
       </label>
 
       <label>
-        <select value={releaseYear} onChange={handleReleaseYearChange}>
+        <select
+          value={releaseYear}
+          onChange={handleReleaseYearChange}
+          style={{
+            backgroundColor: theme.background,
+            color: theme.text,
+          }}
+          className="cursor-pointer"
+        >
           <option value="">All Years</option>
           <option value="2022">2022</option>
           <option value="2021">2021</option>
@@ -48,7 +66,15 @@ export function FilterList({ onFilterChange }) {
       </label>
 
       <label>
-        <select value={rating} onChange={handleRatingChange}>
+        <select
+          value={rating}
+          onChange={handleRatingChange}
+          style={{
+            backgroundColor: theme.background,
+            color: theme.text,
+          }}
+          className="cursor-pointer"
+        >
           <option value="">All Ratings</option>
           <option value="90">90+</option>
           <option value="80">80+</option>

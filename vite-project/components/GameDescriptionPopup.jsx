@@ -25,7 +25,12 @@ function GameDescriptionPopup({ game, onClose }) {
             className="w-full h-auto rounded-lg"
           ></img>
           <h2 className="text-2xl font-bold mb-4">{game.name}</h2>
-          <p className="text-sm text-gray-700 mb-4">{game.description_raw}</p>
+          <p
+            className="text-sm text-gray-700 mb-4"
+            style={{ color: theme.text }}
+          >
+            {game.description_raw}
+          </p>
         </div>
       </div>
     </div>

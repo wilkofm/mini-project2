@@ -3,6 +3,7 @@ import FilterList from "./FilterList";
 import GameDescriptionPopup from "./GameDescriptionPopup";
 import { useTheme } from "../context/MyThemeContext";
 import ToggleThemeButton from "./ToggleThemeButton";
+import { Icon } from "@iconify/react";
 
 function CardList() {
   const { theme } = useTheme();
@@ -34,8 +35,6 @@ function CardList() {
   }, []);
 
   const handleFilterChange = (genre, releaseYear, rating) => {
-    console.log("Filter values:", { genre, releaseYear, rating });
-
     let filtered = games;
 
     if (genre) {
@@ -51,7 +50,13 @@ function CardList() {
     }
 
     if (rating) {
-      filtered = filtered.filter((game) => game.metacritic >= rating);
+      filtered = filtered.filter(
+        (game) => game.metacritic >= parseInt(rating, 10)
+      );
+    }
+
+    if (!genre && !releaseYear && !rating) {
+      filtered = games;
     }
 
     setFilteredGames(filtered);
@@ -109,13 +114,17 @@ function CardList() {
 
             <div className="text-left p-3 w-full overflow-hidden">
               <div className="flex items-center justify-between">
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/PlayStation_logo.svg/2560px-PlayStation_logo.svg.png"
-                  alt="Playstation Logo"
-                  width={30}
-                  height={30}
-                  className="flex-shrink-0"
-                ></img>
+                <Icon
+                  icon={
+                    theme === theme.dark
+                      ? "ri:playstation-fill"
+                      : "ri:playstation-fill"
+                  }
+                  style={{
+                    fontSize: "32px",
+                    color: theme.text,
+                  }}
+                />
                 <p className="text-blue-500 font-bold text-sm mr-2">
                   <span className="inline-block border border-blue-500 rounded px-2 py-1">
                     {game.metacritic}

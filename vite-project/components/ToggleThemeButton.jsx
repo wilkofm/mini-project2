@@ -1,5 +1,6 @@
 import React from "react";
 import { useTheme } from "../context/MyThemeContext";
+import { Icon } from "@iconify/react";
 
 function ToggleThemeButton() {
   const { toggleTheme, theme } = useTheme();
@@ -7,14 +8,20 @@ function ToggleThemeButton() {
   return (
     <button
       onClick={toggleTheme}
-      className="px-4 py-2 rounded"
+      className="px-4 py-2 rounded-full hover:shadow-custom-blue cursor-pointer"
       style={{
         background: theme.foreground,
         color: theme.text,
-        border: `1px solid ${theme.text}`,
+        outline: "none !important",
       }}
     >
-      Toggle Theme
+      <Icon
+        icon={theme === theme.dark ? "ph:sun" : "ph:moon"}
+        style={{
+          fontSize: "24px",
+          color: theme.text,
+        }}
+      />
     </button>
   );
 }

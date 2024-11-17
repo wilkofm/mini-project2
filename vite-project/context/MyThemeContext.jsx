@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext } from "react";
+import React, { createContext, useState, useContext, useEffect } from "react";
 
 export const themes = {
   light: {
@@ -23,6 +23,11 @@ export default function MyThemeProvider({ children }) {
       prevTheme === themes.light ? themes.dark : themes.light
     );
   };
+
+  useEffect(() => {
+    document.body.style.backgroundColor = theme.background;
+    document.body.style.color = theme.text;
+  }, [theme]);
 
   return (
     <MyThemeContext.Provider value={{ theme, toggleTheme }}>
