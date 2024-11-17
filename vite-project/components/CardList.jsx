@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import FilterList from "./FilterList";
 import GameDescriptionPopup from "./GameDescriptionPopup";
+import { useTheme } from "../context/MyThemeContext";
+import ToggleThemeButton from "./ToggleThemeButton";
 
 function CardList() {
+  const { theme } = useTheme();
   const [games, setGames] = useState([]);
   const [filteredGames, setFilteredGames] = useState([]);
   const [selectedGame, setSelectedGame] = useState(null);
@@ -65,7 +68,10 @@ function CardList() {
   };
 
   return (
-    <div className="bg-[#fefefe] min-h-screen">
+    <div
+      style={{ backgroundColor: theme.background, color: theme.text }}
+      className="min-h-screen"
+    >
       <div className="flex items-center justify-between py-4">
         <div className="flex items-center space-x-4">
           <img
@@ -80,12 +86,16 @@ function CardList() {
           </h1>
         </div>
 
-        <FilterList onFilterChange={handleFilterChange} />
+        <div className="flex items-center space-x-4">
+          <FilterList onFilterChange={handleFilterChange} />
+          <ToggleThemeButton />
+        </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {filteredGames.map((game) => (
           <div
-            className="bg-[#f5f7fa] w-72 rounded-lg hover:shadow-custom-blue cursor-pointer transition-shadow max-w-xs mx-auto overflow-hidden box-border"
+            className="w-72 rounded-lg hover:shadow-custom-blue cursor-pointer transition-shadow max-w-xs mx-auto overflow-hidden box-border"
+            style={{ backgroundColor: theme.foreground, color: theme.text }}
             key={game.id}
             onClick={() => handleClick(game.id)}
           >
