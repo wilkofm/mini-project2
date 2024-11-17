@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import FilterList from "./FilterList";
+import GameDescriptionPopup from "./GameDescriptionPopup";
 
 function CardList() {
   const [games, setGames] = useState([]);
@@ -59,6 +60,10 @@ function CardList() {
       .then((data) => setSelectedGame(data));
   };
 
+  const HandleClosePopUp = () => {
+    setSelectedGame(null);
+  };
+
   return (
     <div className="bg-[#fefefe] min-h-screen">
       <div className="flex items-center justify-between py-4">
@@ -91,6 +96,7 @@ function CardList() {
                 className="block w-full h-full object-cover rounded-t-lg"
               />
             </div>
+
             <div className="text-left p-3 w-full overflow-hidden">
               <div className="flex items-center justify-between">
                 <img
@@ -116,13 +122,8 @@ function CardList() {
           </div>
         ))}
       </div>
-      {selectedGame && (
-        <div>
-          <h3>{selectedGame.name}</h3>
-          <p>{selectedGame.description_raw}</p>
-          <button onClick={() => setSelectedGame(null)}>Close</button>
-        </div>
-      )}
+
+      <GameDescriptionPopup game={selectedGame} onClose={HandleClosePopUp} />
     </div>
   );
 }
