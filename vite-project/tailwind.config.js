@@ -7,6 +7,9 @@ export default {
   ],
   theme: {
     extend: {},
+    boxShadow: {
+      "custom-blue": "0 4px 6px -1px #649cf4, 0 2px 4px -2px #649cf4",
+    },
   },
   plugins: [],
 };

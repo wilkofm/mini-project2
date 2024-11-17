@@ -11,13 +11,14 @@ function CardList() {
     const fetchGames = async () => {
       try {
         const response = await fetch(
-          `https://api.rawg.io/api/games?key=${apiKey}&platforms=187&page_size=40`
+          `https://api.rawg.io/api/games?key=${apiKey}&platforms=187&page_size=39`
         );
         if (!response.ok) {
           throw new Error("Response did not work");
         }
         const data = await response.json();
         console.log(data);
+
         setGames(data.results);
         setFilteredGames(data.results);
       } catch (error) {
@@ -59,25 +60,33 @@ function CardList() {
   };
 
   return (
-    <div>
-      <h1>Playstation 5 Games</h1>
-      <FilterList onFilterChange={handleFilterChange} />
+    <div className="bg-[#fefefe] min-h-screen">
+      <div className="flex items-center justify-between py-4">
+        <h1 className="text-left font-bold py-4">
+          Playstation 5 Game Explorer
+        </h1>
+        <FilterList onFilterChange={handleFilterChange} />
+      </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {filteredGames.map((game) => (
           <div
-            className="border border-gray-500 rounded-lg hover:shadow-lg transition-shadow max-w-xs mx-auto"
+            className="bg-[#f5f7fa] w-72 rounded-lg hover:shadow-custom-blue transition-shadow max-w-xs mx-auto overflow-hidden box-border"
             key={game.id}
             onClick={() => handleClick(game.id)}
           >
-            <img
-              src={game.background_image}
-              alt={`${game.name} image`}
-              className="w-full h-auto object-over rounded-t-lg"
-            />
-            <div className="text-left p-3">
-              <h3 className="text-lg font-semibold mt-2">{game.name}</h3>
-              <p className="text-sm">{game.metacritic}</p>
-              <p className="text-sm">
+            <div className="w-full h-48 overflow-hidden">
+              <img
+                src={game.background_image}
+                alt={`${game.name} image`}
+                className="block w-full h-full object-cover rounded-t-lg"
+              />
+            </div>
+            <div className="text-left p-3 w-full overflow-hidden">
+              <h3 className="text-lg font-semibold mt-2 break-words w-full">
+                {game.name}
+              </h3>
+              <p className="text-sm break-words w-full">{game.metacritic}</p>
+              <p className="text-sm w-full break-words">
                 {game.genres.map((genre) => genre.name).join(", ")}
               </p>
             </div>

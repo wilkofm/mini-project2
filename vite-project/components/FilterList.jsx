@@ -23,7 +23,6 @@ export function FilterList({ onFilterChange }) {
   return (
     <div>
       <label>
-        Genre:
         <select value={genre} onChange={handleGenreChange}>
           <option value="">All Genres</option>
           <option value="Action">Action</option>
@@ -35,7 +34,6 @@ export function FilterList({ onFilterChange }) {
       </label>
 
       <label>
-        Year:
         <select value={releaseYear} onChange={handleReleaseYearChange}>
           <option value="">All Years</option>
           <option value="2022">2022</option>
@@ -50,7 +48,6 @@ export function FilterList({ onFilterChange }) {
       </label>
 
       <label>
-        Rating:
         <select value={rating} onChange={handleRatingChange}>
           <option value="">All Ratings</option>
           <option value="90">90+</option>
