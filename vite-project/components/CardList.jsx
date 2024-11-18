@@ -96,7 +96,7 @@ function CardList() {
           <ToggleThemeButton />
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-4 sm:px-6">
         {filteredGames.map((game) => (
           <div
             className="w-72 rounded-lg hover:shadow-custom-blue cursor-pointer transition-shadow max-w-xs mx-auto overflow-hidden box-border"

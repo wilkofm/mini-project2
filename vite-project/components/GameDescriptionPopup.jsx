@@ -9,7 +9,7 @@ function GameDescriptionPopup({ game, onClose }) {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
       <div
-        className="w-1/2 p-6 rounded-lg shadow-lg relative"
+        className="w-1/2 p-6 rounded-lg shadow-lg relative sm:w-3/4 overflow-y-auto max-h-[90vh]"
         style={{ backgroundColor: theme.foreground, color: theme.text }}
       >
         <button
