@@ -19,6 +19,7 @@ function GameDescriptionPopup({ game, onClose }) {
         >
           Close
         </button>
+
         <div className="flex flex-col items-center">
           <img
             src={game.background_image}
