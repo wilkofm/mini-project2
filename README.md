@@ -17,24 +17,29 @@ Main Branch
 - This is my production-ready branch. It should always contain stable, tested code
 
 Card List Branch
+
 - Where I set up my Vite project and the initial card list that pulls the list of games from my API
 
 Filter Branch
-- Branch where I create the ability to filter each game based on the movie genre, year or metacritic rating
+
+- Branch where I create the ability to filter each game based on the game genre, year or metacritic rating
 
 Card List Styling Branch
+
 - Branch where I set up Tailwind CSS and begin my initial styling on the page, making sure the card list is formatted correctly
 
 Description Popup Branch
+
 - This is where I implement the ability to receive a description when clicking on the game card
-  
+
 Dark Mode Feature
+
 - This is where I implement the ability to switch to dark mode and change the theme of the page
-  
+
 Mobile Friendly Styling Branch
 
 - This is the brand where I finalize styling and ensure the page is mobile-friendly
-  
+
 # Styling Goals
 
 I want the site to match the feel of Playstation network app/site
@@ -50,5 +55,5 @@ Here are a few styling features I’d like to implement:
 
 How To Implement This Project Yourself
 
-* Import the files within this GitHub project into your development environment
-* Acquire your own API key to RAWG’s games library
+- Import the files within this GitHub project into your development environment
+- Acquire your own API key to RAWG’s games library

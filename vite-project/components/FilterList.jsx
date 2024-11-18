@@ -9,6 +9,7 @@ export function FilterList({ onFilterChange }) {
   const [rating, setRating] = useState("");
   const [isOpen, setIsOpen] = useState(false);
 
+  // updates the genre, release year and rating state based on click
   const handleGenreChange = (event) => {
     setGenre(event.target.value);
     onFilterChange(event.target.value, releaseYear, rating);
@@ -26,7 +27,7 @@ export function FilterList({ onFilterChange }) {
 
   return (
     <div>
-      {/* Hamburger button for smaller screen */}
+      {/* hamburger button for smaller screen */}
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="md:hidden bg-blue-500 text-white px-3 py-2 rounded-full"
@@ -35,13 +36,10 @@ export function FilterList({ onFilterChange }) {
           color: theme.text,
         }}
       >
-        {isOpen ? (
-          <Icon icon="ci:hamburger-lg" style={{ fontSize: "24px" }} />
-        ) : (
-          <Icon icon="ci:hamburger-lg" style={{ fontSize: "24px" }} />
-        )}
+        <Icon icon="ci:hamburger-lg" style={{ fontSize: "24px" }} />
       </button>
 
+      {/* filter dropdowns */}
       <div
         className={`${isOpen ? "block" : "hidden"} md:block mt-4 md:mt-0`}
         style={{ backgroundColor: theme.foreground, color: theme.text }}

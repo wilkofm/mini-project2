@@ -12,6 +12,7 @@ function CardList() {
   const [selectedGame, setSelectedGame] = useState(null);
   const apiKey = import.meta.env.VITE_SECRET_API_KEY;
 
+  // fetching games from API
   useEffect(() => {
     const fetchGames = async () => {
       try {
@@ -34,6 +35,7 @@ function CardList() {
     fetchGames();
   }, []);
 
+  // filtering games by genre, release year and metacritic score
   const handleFilterChange = (genre, releaseYear, rating) => {
     let filtered = games;
 
@@ -50,11 +52,10 @@ function CardList() {
     }
 
     if (rating) {
-      filtered = filtered.filter(
-        (game) => game.metacritic >= parseInt(rating, 10)
-      );
+      filtered = filtered.filter((game) => game.metacritic >= parseInt(rating));
     }
 
+    // resets filtered array if no filter selected
     if (!genre && !releaseYear && !rating) {
       filtered = games;
     }
@@ -62,17 +63,20 @@ function CardList() {
     setFilteredGames(filtered);
   };
 
+  // handles card clicks, fetches specific game data by game id
   const handleClick = (gameId) => {
     fetch(`https://api.rawg.io/api/games/${gameId}?key=${apiKey}`)
       .then((response) => response.json())
       .then((data) => setSelectedGame(data));
   };
 
+  // handles closing the pop up window and retsetting the state
   const HandleClosePopUp = () => {
     setSelectedGame(null);
   };
 
   return (
+    // icon, page title, filter list and dark mode button
     <div
       style={{ backgroundColor: theme.background, color: theme.text }}
       className="min-h-screen"
@@ -96,6 +100,8 @@ function CardList() {
           <ToggleThemeButton />
         </div>
       </div>
+
+      {/* card list */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-4 sm:px-6">
         {filteredGames.map((game) => (
           <div

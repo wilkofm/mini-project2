@@ -2,6 +2,7 @@ import React from "react";
 import { useTheme } from "../context/MyThemeContext";
 import { Icon } from "@iconify/react";
 
+// this function renders the dark mode button
 function ToggleThemeButton() {
   const { toggleTheme, theme } = useTheme();
 

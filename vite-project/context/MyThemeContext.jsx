@@ -1,5 +1,6 @@
 import React, { createContext, useState, useContext, useEffect } from "react";
 
+// light and dark mode themes
 export const themes = {
   light: {
     foreground: "#f5f7fa",
@@ -13,17 +14,21 @@ export const themes = {
   },
 };
 
+// creates context object
 export const MyThemeContext = createContext();
 
+// makes theme available to all children components
 export default function MyThemeProvider({ children }) {
   const [theme, setTheme] = useState(themes.light);
 
+  // toggles the theme between dark and light based on the current state
   const toggleTheme = () => {
     setTheme((prevTheme) =>
       prevTheme === themes.light ? themes.dark : themes.light
     );
   };
 
+  // updates the body backgroundColor and Color to match the current theme
   useEffect(() => {
     document.body.style.backgroundColor = theme.background;
     document.body.style.color = theme.text;
