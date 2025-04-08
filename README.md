@@ -17,7 +17,14 @@ The goal of this project was to create a visually appealing, responsive single-p
 
 # Screenshots
 
-Coming soon
+_Home Page - Light Mode_
+![Home Page Light Mode](images/home-page-lightmode.png)
+
+_Home Page - Dark Mode_
+![Home Page Dark Mode](images/home-page-darkmode.png)
+
+_Pop Up Window_
+![Pop Up Window](images/pop-up.png)
 
 # Installation Instructions
 
