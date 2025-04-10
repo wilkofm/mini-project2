@@ -48,3 +48,8 @@ _Pop Up Window_
 - Ensured interactivity and layout responsiveness at various breakpoints
 - Verified API calls, error handling, and conditional rendering
 - Theme toggling tested with context and visual inspection
+
+# Contact
+
+Created by Max Wilkinson
+[Github](https://github.com/wilkofm) | [LinkedIn](https://www.linkedin.com/in/max-wilkinson-b35aa29b/)
